@@ -84,6 +84,7 @@ elif format=="Video":
                     with torch.no_grad():
                          frame=cv2.resize(frame,(480,480))
                          detect_img=detection_img(frame,conf_threshold,iou_threshold)
+                         st.write("fuck you")
                          st.image(detect_img)
                 else:
                     break
