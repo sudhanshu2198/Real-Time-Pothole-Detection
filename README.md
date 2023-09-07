@@ -1,43 +1,44 @@
-
-
-
 # Real Time Pothole Detection
+
+Potholes are symptoms of a poorly maintained road, pointing to an underlying structural issue. A vehicle's impact with a pothole not only makes for an uncomfortable journey, but it can also cause damage to the vehicle's wheels, tyres and suspension system resulting in high repair bills.
 
 ![](https://github.com/sudhanshu2198/Real-Time-Pothole-Detection/blob/main/videos/ezgif.com-video-to-gif.gif)
 
-Restaurant Rating has become the most commonly used parameter for judging a restaurant for any individual.Rating of a restaurant depends on factors like reviews, area situated, average cost for two people, votes, cuisines and the type of restaurant.
+Different model architecture and backnones are utilizes for pothole detection
+- FasterRCNN with Resnet: .6802 map @ iou=0.5
+- SSD with Vgg : .5642 map @ iou=0.5
+- SSDLite with MobileNetv3: .453 @ iou=0.5
+- Yolov8m: 0.38 @ iou=0.5
 
-**The main goal of this is to get insights on restaurants which people like visit and to identify the rating of the restaurant.**
-
-
+Though FasterRCNN and SSD performs better but they have significantly slower speed then SSDLite model , due to which SSDLite Model with Mobilenetv3 backbone is deployed in the Streamlit as pothole detection model.
 
 ## 🔗 Links
 
- - [App Link](https://sudhanshu2198-end-to-end-restaurant-rating--introduction-ts1jhq.streamlit.app/)
- - [Kaggle Notebook link](https://www.kaggle.com/code/sudhanshu2198/restaurant-rating-prediction-app/notebook)
+ - [App Link](https://jakarta-indonesia-predicting-road-defects-d3xkv5edzmxlasspkvhh.streamlit.app/)
+ - [Kaggle Notebook link](https://www.kaggle.com/code/sudhanshu2198/real-time-pothole-detection-using-ssd)
 
 
 ## 🛠 Skills
-Python, Pandas, Numpy, Matplotlib, Plotly, Scikit-learn, Streamlit, Git, Optuna, LightGBM
+Pytorch, Torchvision, Ultralytics, OpenCV, Numpy, Streamlit, Git
 
 ## Directory Tree
 ```bash
 
-├── artifacts
-│   ├── encoder.pkl
-│   │── mlb.pkl
-│   └── model.pkl 
-├── pages
-│   ├── Prediction.py
-│   └── Visualization.py
-├── resources
-│   ├── display.csv
-│   └── images.jpg
-│    
-├── Introduction.py
+├── images
+│   ├── 0.png
+│   │── 1.png
+|   |── 2.png
+│   └── 3.png 
+├── videos
+│   ├── pothole_Trim.mp4
+├── app.py
+├── utils.py
+├── pothole-detection-using-faster-rcnn.ipynb
+├── real-time-pothole-detection-using-ssd.ipynb
 ├── README.md
-├── Jupyter_Notebook.ipynb
-└── requirements.txt
+├── pothole_model_lite.pth
+├── requirements.txt
+└── packages.txt
 ```
 
 ## Run Locally
@@ -45,18 +46,26 @@ Python, Pandas, Numpy, Matplotlib, Plotly, Scikit-learn, Streamlit, Git, Optuna,
 Clone the project
 
 ```bash
-  git clone https://github.com/sudhanshu2198/End-to-End-Restaurant-Rating-Prediction
+  git clone https://github.com/sudhanshu2198/Real-Time-Pothole-Detection
 ```
 
 Change to project directory
 
 ```bash
-  cd End-to-End-Restaurant-Rating-Prediction
+  cd Real-Time-Pothole-Detection
 ```
-Now install all requirements
+Create Virtaul Environment and install dependencies
 
 ```bash
+  pip install virtualenv
+  venv/Scripts/activate
   pip install -r requirements.txt
+```
 
+Run Locally
+```bash
+  pip install virtualenv
+  venv/Scripts/activate
+  pip install -r requirements.txt
 ```
 
