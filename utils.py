@@ -7,6 +7,7 @@ from torchvision.models.detection import ssdlite320_mobilenet_v3_large
 import streamlit as st
 from urllib.request import urlopen
 import tempfile
+import os
 
 def show_bbox(img,target,color=(0,255,0)):
     img=np.transpose(img.numpy(),(1,2,0))
@@ -38,6 +39,9 @@ def get_model():
     num_anchors=model.anchor_generator.num_anchors_per_location()
     model.head=SSDHead(in_channels=in_channels,num_anchors=num_anchors,
                        num_classes=2)
-    weights=torch.load("pothole_model_lite.pth",map_location="cpu")
+    
+    dirname=os.path.dirname(os.path.abspath(__file__))
+    path=os.path.join(dirname,"pothole_model_lite.pth")
+    weights=torch.load(path,map_location="cpu")
     model.load_state_dict(weights)
     return model
