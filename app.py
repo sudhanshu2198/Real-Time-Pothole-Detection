@@ -74,17 +74,16 @@ elif format=="Video":
         video_dir=os.path.join(dirname,"videos")
         default_video_path=os.path.join(video_dir,"pothole_Trim.mp4")
         video_file=default_video_path
-    with st.empty():
-            if button:
-                cap=cv2.VideoCapture(video_file)
-                if (cap.isOpened() == False):
-                    print('Error while trying to read video. Please check path again')
-                while(cap.isOpened()):
-                    ret,frame=cap.read()
-                    if ret==True:
-                        with torch.no_grad():
-                            frame=cv2.resize(frame,(480,480))
-                            detect_img=detection_img(frame,conf_threshold,iou_threshold)
-                            st.image(detect_img)
-                    else:
-                        break
+    if button:
+        cap=cv2.VideoCapture(video_file)
+        if (cap.isOpened() == False):
+            print('Error while trying to read video. Please check path again')
+            while(cap.isOpened()):
+                ret,frame=cap.read()
+                if ret==True:
+                    with torch.no_grad():
+                         frame=cv2.resize(frame,(480,480))
+                         detect_img=detection_img(frame,conf_threshold,iou_threshold)
+                         st.image(detect_img)
+                else:
+                    break
